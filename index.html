@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paw Helper — Animal Welfare NGO, Maharashtra</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green:       #1B4332;
+  --green-mid:   #2D6A4F;
+  --green-light: #40916C;
+  --green-pale:  #D8F3DC;
+  --amber:       #F4A261;
+  --amber-deep:  #E07B3A;
+  --amber-pale:  #FEF3E8;
+  --surface:     #FAFAF8;
+  --white:       #FFFFFF;
+  --text:        #1A1A1A;
+  --text-mid:    #374151;
+  --text-muted:  #6B7280;
+  --border:      #E8E6E0;
+  --border-dark: #D1CEC7;
+  --sh-sm: 0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+  --sh-md: 0 4px 16px rgba(0,0,0,.08),0 2px 6px rgba(0,0,0,.04);
+  --sh-lg: 0 20px 50px rgba(0,0,0,.10),0 8px 20px rgba(0,0,0,.06);
+  --r-sm:8px; --r-md:14px; --r-lg:22px; --r-xl:32px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--surface);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+.container{max-width:1160px;margin:0 auto;padding:0 48px}
+
+.label{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green-light);display:inline-block;margin-bottom:12px}
+.label-amber{color:var(--amber-deep)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.875rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:all .22s cubic-bezier(.4,0,.2,1);white-space:nowrap}
+.btn-primary{background:var(--amber);color:#fff;box-shadow:0 4px 18px rgba(244,162,97,.35)}
+.btn-primary:hover{background:var(--amber-deep);box-shadow:0 6px 24px rgba(244,162,97,.45);transform:translateY(-1px)}
+.btn-green{background:var(--green);color:#fff;box-shadow:0 4px 18px rgba(27,67,50,.25)}
+.btn-green:hover{background:var(--green-mid);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--green);border:1.5px solid var(--border-dark)}
+.btn-ghost:hover{border-color:var(--green);background:var(--green-pale)}
+.btn-white-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3)}
+.btn-white-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.6)}
+.btn-lg{padding:15px 34px;font-size:.93rem}
+.btn-sm{padding:9px 18px;font-size:.8rem}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,250,248,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1160px;margin:0 auto;padding:0 48px;height:66px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:34px;height:34px;background:var(--green);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.logo-text{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;color:var(--text);letter-spacing:-.01em}
+.logo-text span{color:var(--green)}
+.nav-links{display:flex;align-items:center;list-style:none;gap:2px}
+.nav-links li a{display:block;padding:7px 14px;font-size:.855rem;font-weight:500;color:var(--text-mid);text-decoration:none;border-radius:8px;transition:all .18s}
+.nav-links li a:hover{color:var(--green);background:var(--green-pale)}
+
+/* ── HERO ── */
+#hero{background:var(--green);min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 0 80px;position:relative;overflow:hidden}
+#hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 15% 50%,rgba(64,145,108,.22) 0%,transparent 55%),radial-gradient(circle at 85% 15%,rgba(244,162,97,.1) 0%,transparent 45%),radial-gradient(circle at 65% 85%,rgba(27,67,50,.5) 0%,transparent 50%);pointer-events:none}
+#hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:64px 64px;pointer-events:none}
+
+.hero-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1}
+.hero-left{animation:fadeUp .7s ease both}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(244,162,97,.14);border:1px solid rgba(244,162,97,.3);color:var(--amber);padding:6px 14px;border-radius:50px;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:26px}
+.hero-h1{font-family:'Fraunces',serif;font-size:clamp(2.6rem,5vw,3.9rem);font-weight:700;color:#fff;line-height:1.1;letter-spacing:-.02em;margin-bottom:22px}
+.hero-h1 em{font-style:italic;font-weight:400;color:var(--amber)}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:38px;max-width:460px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:52px}
+.hero-rule{width:40px;height:1px;background:rgba(255,255,255,.14);margin-bottom:28px}
+.hero-stats{display:flex;gap:36px;flex-wrap:wrap}
+.hs-num{font-family:'Fraunces',serif;font-size:1.85rem;font-weight:700;color:#fff;line-height:1;display:block;margin-bottom:4px}
+.hs-num sup{font-size:.9rem;color:var(--amber);vertical-align:super}
+.hs-lbl{font-size:.75rem;color:rgba(255,255,255,.42);font-weight:500;text-transform:uppercase;letter-spacing:.06em}
+
+.hero-right{display:flex;flex-direction:column;gap:14px;animation:fadeUp .7s .15s ease both}
+.h-card{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.09);border-radius:var(--r-lg);padding:22px 26px;backdrop-filter:blur(8px);transition:background .2s}
+.h-card:hover{background:rgba(255,255,255,.085)}
+.h-card-row{display:flex;align-items:center;gap:16px}
+.h-ico{width:46px;height:46px;border-radius:12px;background:var(--amber);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+.h-ico.g{background:var(--green-mid)}
+.h-ico.t{background:#1E4545}
+.h-card-text h4{font-size:.9rem;font-weight:600;color:#fff;margin-bottom:2px}
+.h-card-text p{font-size:.78rem;color:rgba(255,255,255,.48);line-height:1.45}
+.h-note{display:flex;gap:12px;align-items:center;padding:14px 18px;background:rgba(244,162,97,.1);border:1px solid rgba(244,162,97,.22);border-radius:var(--r-md)}
+.h-note p{font-size:.8rem;color:rgba(255,255,255,.65)}
+.h-note strong{color:var(--amber)}
+
+/* ── TRUST BAR ── */
+.trust-bar{background:#fff;border-bottom:1px solid var(--border);padding:18px 0}
+.trust-inner{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
+.t-item{display:flex;align-items:center;gap:9px;font-size:.8rem;color:var(--text-muted);font-weight:500}
+.t-ico{width:26px;height:26px;border-radius:7px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
+.t-sep{width:4px;height:4px;border-radius:50%;background:var(--border-dark)}
+
+/* ── IMPACT ── */
+.impact-section{background:var(--surface);padding:72px 0;border-bottom:1px solid var(--border)}
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+.impact-cell{background:#fff;padding:36px 28px;text-align:center;transition:background .2s}
+.impact-cell:hover{background:var(--green-pale)}
+.i-num{font-family:'Fraunces',serif;font-size:2.6rem;font-weight:700;color:var(--green);display:block;line-height:1;margin-bottom:8px;letter-spacing:-.02em}
+.i-lbl{font-size:.77rem;color:var(--text-muted);font-weight:500;text-transform:uppercase;letter-spacing:.06em;line-height:1.4}
+
+/* ── ABOUT ── */
+.about-section{background:#fff;padding:96px 0}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-h{font-family:'Fraunces',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;letter-spacing:-.02em;margin-bottom:18px;line-height:1.2}
+.about-text p{font-size:.97rem;color:var(--text-mid);line-height:1.8;margin-bottom:28px}
+.pillars{display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
+.pillar{display:flex;gap:15px;align-items:flex-start;padding:16px 18px;border:1px solid var(--border);border-radius:var(--r-md);transition:border-color .2s,box-shadow .2s}
+.pillar:hover{border-color:var(--green-light);box-shadow:var(--sh-sm)}
+.p-dot{width:7px;height:7px;border-radius:50%;background:var(--amber);flex-shrink:0;margin-top:8px}
+.pillar h4{font-size:.875rem;font-weight:600;color:var(--text);margin-bottom:3px}
+.pillar p{font-size:.8rem;color:var(--text-muted);line-height:1.55;margin:0}
+.about-btns{display:flex;gap:12px;flex-wrap:wrap}
+
+.about-visual{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.av{border-radius:var(--r-md);padding:26px 22px;display:flex;flex-direction:column;gap:10px}
+.av.green-full{background:var(--green);grid-column:span 2;flex-direction:row;align-items:center;gap:18px;padding:28px 26px}
+.av.amber-bg{background:var(--amber-pale);border:1px solid rgba(244,162,97,.2)}
+.av.pale-bg{background:var(--green-pale);border:1px solid rgba(64,145,108,.18)}
+.av-ico{font-size:1.9rem;line-height:1}
+.av.green-full .av-ico{font-size:2.2rem;flex-shrink:0}
+.av h4{font-size:.9rem;font-weight:600;line-height:1.3}
+.av p{font-size:.79rem;line-height:1.55;opacity:.7}
+.av.green-full h4{color:#fff;font-size:1rem}
+.av.green-full p{color:rgba(255,255,255,.62);opacity:1;font-size:.84rem}
+.av-big{font-family:'Fraunces',serif;font-size:2rem;font-weight:700;display:block;line-height:1;color:var(--green)}
+.av-big.ab{color:var(--amber-deep)}
+.av-sm{font-size:.73rem;color:var(--text-muted);font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+
+/* ── PROGRAMS ── */
+.programs-section{background:var(--surface);padding:96px 0}
+.prog-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;gap:20px}
+.prog-header p{max-width:320px;font-size:.9rem;color:var(--text-muted);line-height:1.7;text-align:right}
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.prog-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:all .25s cubic-bezier(.4,0,.2,1)}
+.prog-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);border-color:transparent}
+.prog-thumb{height:130px;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.p1 .prog-thumb{background:linear-gradient(135deg,#FEF3E8,#FDE0C0)}
+.p2 .prog-thumb{background:linear-gradient(135deg,#E0F5E6,#B6E4C4)}
+.p3 .prog-thumb{background:linear-gradient(135deg,#E6F2FD,#BCDDF8)}
+.p4 .prog-thumb{background:linear-gradient(135deg,#F0E8FD,#D8BEF8)}
+.p5 .prog-thumb{background:linear-gradient(135deg,#FEF8E4,#FAE29C)}
+.p6 .prog-thumb{background:linear-gradient(135deg,#E4FEEE,#9EF4BF)}
+.prog-body{padding:22px}
+.prog-body h3{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:7px;letter-spacing:-.01em}
+.prog-body p{font-size:.82rem;color:var(--text-muted);line-height:1.65;margin-bottom:14px}
+.prog-badge{display:inline-flex;align-items:center;gap:4px;background:var(--green-pale);color:var(--green-mid);padding:4px 11px;border-radius:50px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+
+/* ════════════════════════
+   DONATE SECTION
+   No payment gateway — bank transfer + UPI + contact
+════════════════════════ */
+#donate{background:linear-gradient(155deg,#0C2118 0%,#1B4332 55%,#142E25 100%);padding:96px 0;position:relative;overflow:hidden}
+#donate::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(64,145,108,.14) 0%,transparent 70%);top:-220px;right:-80px;pointer-events:none}
+
+.donate-wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:start;position:relative;z-index:1}
+
+.donate-left .label{color:rgba(244,162,97,.7)}
+.donate-h{font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;color:#fff;line-height:1.14;letter-spacing:-.02em;margin-bottom:18px}
+.donate-h em{font-style:italic;font-weight:400;color:var(--amber)}
+.donate-sub{font-size:.96rem;color:rgba(255,255,255,.52);line-height:1.8;margin-bottom:32px}
+
+/* Impact rows */
+.impact-rows{margin-bottom:36px}
+.ir{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.ir:first-child{padding-top:0}
+.ir:last-child{border-bottom:none;padding-bottom:0}
+.ir-amt{font-family:'Fraunces',serif;font-size:1rem;font-weight:600;color:var(--amber);min-width:66px}
+.ir-bar-bg{flex:1;height:3px;background:rgba(255,255,255,.07);border-radius:99px;overflow:hidden}
+.ir-bar{height:100%;background:linear-gradient(90deg,var(--amber),var(--amber-deep));border-radius:99px}
+.ir-lbl{font-size:.79rem;color:rgba(255,255,255,.46);text-align:right;min-width:155px;line-height:1.35}
+
+.d-trust{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.d-badge{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);padding:7px 13px;border-radius:50px;font-size:.76rem;color:rgba(255,255,255,.55);font-weight:500}
+
+/* Donate card — RIGHT SIDE */
+.donate-card{background:#fff;border-radius:var(--r-xl);padding:36px;box-shadow:0 40px 80px rgba(0,0,0,.25)}
+.donate-card-title{font-family:'Fraunces',serif;font-size:1.45rem;font-weight:600;color:var(--text);letter-spacing:-.01em;margin-bottom:4px}
+.donate-card-sub{font-size:.8rem;color:var(--text-muted);margin-bottom:26px}
+
+
+
+
+
+/* Bank/UPI methods */
+.pay-methods{display:flex;flex-direction:column;gap:12px;margin-bottom:22px}
+.pay-method{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);transition:border-color .18s,background .18s;cursor:default}
+.pay-method:hover{border-color:var(--green-light);background:rgba(216,243,220,.3)}
+.pm-icon{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.pm-icon.upi{background:#F0FFF4}
+.pm-icon.bank{background:#FFF8F0}
+.pm-icon.cheque{background:#F0F4FF}
+.pm-text{}
+.pm-text strong{display:block;font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:1px}
+.pm-text span{font-size:.78rem;color:var(--text-muted);line-height:1.4}
+.pm-copy{margin-left:auto;background:var(--green-pale);border:none;border-radius:6px;padding:5px 10px;font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:600;color:var(--green);cursor:pointer;transition:background .18s;white-space:nowrap}
+.pm-copy:hover{background:#B7E4C7}
+
+/* Enquiry CTA inside card */
+.donate-enquiry{width:100%;background:var(--green);color:#fff;border:none;border-radius:var(--r-md);padding:14px;font-family:'Outfit',sans-serif;font-size:.92rem;font-weight:700;cursor:pointer;transition:all .22s;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 18px rgba(27,67,50,.3);letter-spacing:.01em;text-decoration:none;margin-top:4px}
+.donate-enquiry:hover{background:var(--green-mid);transform:translateY(-1px);box-shadow:0 6px 24px rgba(27,67,50,.35)}
+
+.receipt-note{display:flex;align-items:flex-start;gap:9px;background:var(--amber-pale);border:1px solid rgba(244,162,97,.25);border-radius:var(--r-sm);padding:12px 14px;margin-top:16px}
+.receipt-note p{font-size:.76rem;color:var(--text-mid);line-height:1.55}
+.receipt-note span{font-size:1rem;flex-shrink:0;margin-top:1px}
+
+/* ── CSR ── */
+.csr-section{background:var(--surface);padding:96px 0}
+.csr-intro-block{text-align:center;max-width:580px;margin:0 auto 56px}
+.csr-intro-block p{color:var(--text-muted);font-size:.96rem;line-height:1.75}
+.csr-split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;margin-bottom:56px}
+.csr-left p{font-size:.95rem;color:var(--text-mid);line-height:1.8;margin-bottom:22px}
+.csr-alert{display:flex;gap:12px;padding:16px 18px;background:var(--green-pale);border-radius:var(--r-md);border-left:3px solid var(--green-light);margin-bottom:28px}
+.csr-alert p{font-size:.8rem;color:var(--text-mid);line-height:1.55;margin:0}
+.csr-btns{display:flex;gap:12px;flex-wrap:wrap}
+.csr-tiers-stack{display:flex;flex-direction:column;gap:12px}
+.tier{display:flex;align-items:center;gap:18px;padding:20px 22px;background:#fff;border:1px solid var(--border);border-radius:var(--r-md);transition:all .22s}
+.tier:hover{box-shadow:var(--sh-md);border-color:var(--border-dark);transform:translateX(3px)}
+.tier-medal{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.tg .tier-medal{background:linear-gradient(135deg,#FFF0C0,#F4D03F)}
+.ts .tier-medal{background:linear-gradient(135deg,#F2F2F2,#C8C8C8)}
+.tb .tier-medal{background:linear-gradient(135deg,#F4E2CC,#D4976A)}
+.tier-detail{flex:1}
+.tier-detail h4{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:2px}
+.tier-detail p{font-size:.77rem;color:var(--text-muted);line-height:1.4}
+.tier-price{font-family:'Fraunces',serif;font-size:1rem;font-weight:700;color:var(--green);white-space:nowrap}
+.csr-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cb{background:#fff;border:1px solid var(--border);border-radius:var(--r-md);padding:26px 22px;transition:all .22s}
+.cb:hover{box-shadow:var(--sh-md);border-color:var(--green-light)}
+.cb-ico{width:38px;height:38px;background:var(--green-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:14px}
+.cb h4{font-size:.87rem;font-weight:600;color:var(--text);margin-bottom:5px}
+.cb p{font-size:.79rem;color:var(--text-muted);line-height:1.6}
+
+/* ── STORIES ── */
+.stories-section{background:#fff;padding:96px 0}
+.sec-head{margin-bottom:44px}
+.sec-head p{color:var(--text-muted);max-width:450px;font-size:.92rem;line-height:1.7}
+.stories-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.story{border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:all .25s}
+.story:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);border-color:transparent}
+.story-top{height:158px;display:flex;align-items:center;justify-content:center;font-size:3.8rem;position:relative}
+.s1 .story-top{background:linear-gradient(135deg,#FEF3E8,#FDDCBD)}
+.s2 .story-top{background:linear-gradient(135deg,#ECF9EF,#D0F0DA)}
+.s3 .story-top{background:linear-gradient(135deg,#EDECFE,#D6D2FC)}
+.story-pill{position:absolute;top:12px;left:12px;background:#fff;color:var(--green);font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 10px;border-radius:50px;box-shadow:var(--sh-sm)}
+.story-body{padding:22px}
+.story-body h3{font-family:'Fraunces',serif;font-size:1rem;font-weight:600;color:var(--text);margin-bottom:7px;letter-spacing:-.01em;line-height:1.3}
+.story-body p{font-size:.81rem;color:var(--text-muted);line-height:1.65;margin-bottom:12px}
+.story-outcome{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:700;color:var(--green-mid);text-transform:uppercase;letter-spacing:.05em}
+
+/* ── CONTACT ── */
+.contact-section{background:var(--surface);padding:96px 0}
+.contact-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:72px;align-items:start}
+.contact-intro p{color:var(--text-muted);font-size:.95rem;line-height:1.78;margin-bottom:28px}
+.c-items{display:flex;flex-direction:column;gap:12px}
+.c-item{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;background:#fff;border:1px solid var(--border);border-radius:var(--r-md);transition:border-color .2s}
+.c-item:hover{border-color:var(--green-light)}
+.c-ico{width:36px;height:36px;background:var(--green-pale);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.c-txt strong{display:block;font-size:.83rem;font-weight:600;margin-bottom:2px}
+.c-txt span{font-size:.8rem;color:var(--text-muted);line-height:1.5}
+
+.contact-form{display:flex;flex-direction:column;gap:12px}
+.field{width:100%}
+.field label{display:block;font-size:.73rem;font-weight:700;color:var(--text-mid);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-family:'Outfit',sans-serif;font-size:.88rem;color:var(--text);background:#fff;outline:none;transition:border-color .18s;-webkit-appearance:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green)}
+.field textarea{resize:vertical;min-height:105px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cf-title{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:600;letter-spacing:-.01em;margin-bottom:22px}
+
+/* ── SPONSORSHIP ── */
+.sponsor-section{background:var(--surface);padding:96px 0}
+.sponsor-intro{text-align:center;max-width:600px;margin:0 auto 56px}
+.sponsor-intro p{font-size:.97rem;color:var(--text-muted);line-height:1.75;margin-top:10px}
+
+.sponsor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
+
+.sp-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:all .25s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
+.sp-card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg);border-color:transparent}
+
+.sp-card.featured{border:2px solid var(--green);position:relative}
+.sp-card.featured::before{content:'Most Popular';position:absolute;top:0;right:0;background:var(--green);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-bottom-left-radius:10px}
+
+.sp-header{padding:28px 26px 22px}
+.sp-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px}
+.sp-icon.amber{background:var(--amber-pale)}
+.sp-icon.green{background:var(--green-pale)}
+.sp-icon.teal{background:#E6F4F4}
+.sp-icon.purple{background:#F0EEFE}
+.sp-icon.rose{background:#FEF0F0}
+.sp-icon.gold{background:#FFFAE6}
+
+.sp-name{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
+.sp-title{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;color:var(--text);letter-spacing:-.01em;line-height:1.25;margin-bottom:10px}
+.sp-price{display:flex;align-items:baseline;gap:4px;margin-bottom:4px}
+.sp-amount{font-family:'Fraunces',serif;font-size:2rem;font-weight:700;color:var(--green);line-height:1}
+.sp-freq{font-size:.82rem;color:var(--text-muted);font-weight:500}
+.sp-desc{font-size:.82rem;color:var(--text-muted);line-height:1.6;padding:0 26px 18px}
+
+.sp-divider{height:1px;background:var(--border);margin:0 26px}
+
+.sp-perks{padding:18px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.sp-perk{display:flex;align-items:flex-start;gap:10px;font-size:.82rem;color:var(--text-mid);line-height:1.45}
+.sp-perk-dot{width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0;margin-top:6px}
+
+.sp-footer{padding:18px 26px 26px;margin-top:auto}
+.sp-cta{display:flex;align-items:center;justify-content:center;width:100%;padding:12px;border-radius:var(--r-sm);font-family:'Outfit',sans-serif;font-size:.875rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all .22s;gap:6px}
+.sp-cta.green-cta{background:var(--green);color:#fff;box-shadow:0 4px 14px rgba(27,67,50,.25)}
+.sp-cta.green-cta:hover{background:var(--green-mid);transform:translateY(-1px)}
+.sp-cta.outline-cta{background:transparent;color:var(--green);border:1.5px solid var(--border-dark)}
+.sp-cta.outline-cta:hover{border-color:var(--green);background:var(--green-pale)}
+
+/* Certificate strip */
+.cert-strip{background:var(--green);border-radius:var(--r-lg);padding:32px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.cert-strip-left h3{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;color:#fff;margin-bottom:5px}
+.cert-strip-left p{font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.5;max-width:480px}
+.cert-strip-right{display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0}
+
+@media(max-width:1024px){.sponsor-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.sponsor-section{padding:64px 0}.sponsor-grid{grid-template-columns:1fr}.cert-strip{flex-direction:column;text-align:center}.cert-strip-right{justify-content:center}}
+
+/* ── FOOTER ── */
+footer{background:var(--green);padding:60px 0 28px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;padding-bottom:44px;margin-bottom:28px;border-bottom:1px solid rgba(255,255,255,.1)}
+.f-brand .logo{margin-bottom:14px}
+.f-brand .logo-text{color:#fff}
+.f-brand .logo-text span{color:var(--amber)}
+.f-brand p{font-size:.81rem;color:rgba(255,255,255,.47);line-height:1.78;max-width:250px;margin-bottom:22px}
+.socials{display:flex;gap:9px}
+.soc{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.11);display:flex;align-items:center;justify-content:center;font-size:.85rem;cursor:pointer;transition:all .2s;text-decoration:none}
+.soc:hover{background:var(--amber);border-color:var(--amber)}
+.f-col h5{font-size:.74rem;font-weight:700;color:rgba(255,255,255,.9);text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.f-col ul li a{font-size:.82rem;color:rgba(255,255,255,.42);text-decoration:none;transition:color .18s}
+.f-col ul li a:hover{color:rgba(255,255,255,.88)}
+.footer-btm{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:.76rem;color:rgba(255,255,255,.32)}
+.footer-btm a{color:rgba(255,255,255,.52);text-decoration:none}
+.footer-btm a:hover{color:var(--amber)}
+
+/* ── STICKY ── */
+.sticky{position:fixed;bottom:0;left:0;right:0;z-index:800;background:var(--green);border-top:1px solid rgba(255,255,255,.1);padding:13px 48px;display:none;align-items:center;justify-content:space-between;gap:14px}
+.sticky-txt{font-size:.85rem;color:rgba(255,255,255,.7)}
+.sticky-txt strong{color:#fff}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:#1A1A1A;color:#fff;padding:12px 22px;border-radius:50px;font-size:.82rem;font-weight:500;opacity:0;transition:all .35s;pointer-events:none;z-index:2000;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .container{padding:0 32px}
+  .hero-wrap,.about-grid,.donate-wrap,.csr-split,.contact-grid{grid-template-columns:1fr;gap:44px}
+  .hero-right{max-width:500px}
+  .impact-grid{grid-template-columns:repeat(2,1fr)}
+  .prog-grid,.csr-benefits{grid-template-columns:repeat(2,1fr)}
+  .prog-header{flex-direction:column;align-items:flex-start}
+  .prog-header p{text-align:left}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:680px){
+  .container{padding:0 20px}
+  .about-section,.programs-section,.csr-section,.stories-section,.contact-section{padding:64px 0}
+  #hero{padding:100px 0 64px}
+  .impact-section{padding:52px 0}
+  .nav-links{display:none}
+  .prog-grid,.stories-grid,.csr-benefits{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .about-visual{grid-template-columns:1fr}
+  .av.green-full{grid-column:span 1;flex-direction:column;align-items:flex-start}
+  .preset-grid{grid-template-columns:repeat(2,1fr)}
+  .field-row{grid-template-columns:1fr}
+  .hero-stats{gap:22px}
+  .trust-inner{gap:12px}
+  .sticky{padding:12px 20px}
+  .impact-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- ════ NAVBAR ════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="logo">
+      <div class="logo-mark">🐾</div>
+      <span class="logo-text">Paw <span>Helper</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#stories">Stories</a></li>
+      <li><a href="#sponsor">Sponsor</a></li>
+      <li><a href="#csr">CSR</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a href="#donate" class="btn btn-primary btn-sm">Donate Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════ HERO ════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-wrap">
+      <div class="hero-left">
+        <div class="hero-eyebrow">🐾 Registered NGO · Latur, Maharashtra</div>
+        <h1 class="hero-h1">Giving Every Stray Animal<br>a <em>Safe, Loved Life</em></h1>
+        <p class="hero-sub">Paw Helper rescues, rehabilitates and rehomes stray dogs and cats across Maharashtra — providing emergency care, free medical treatment, daily feeding and adoption support every single day.</p>
+        <div class="hero-actions">
+          <a href="#donate" class="btn btn-primary btn-lg">Donate Now</a>
+          <a href="#programs" class="btn btn-white-ghost btn-lg">Our Programs</a>
+        </div>
+        <div class="hero-rule"></div>
+        <div class="hero-stats">
+          <div>
+            <span class="hs-num">1,200<sup>+</sup></span>
+            <span class="hs-lbl">Animals Rescued</span>
+          </div>
+          <div>
+            <span class="hs-num">850<sup>+</sup></span>
+            <span class="hs-lbl">Adopted</span>
+          </div>
+          <div>
+            <span class="hs-num">4,500<sup>+</sup></span>
+            <span class="hs-lbl">Meals / Month</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="h-card">
+          <div class="h-card-row">
+            <div class="h-ico">🚑</div>
+            <div class="h-card-text">
+              <h4>24/7 Emergency Rescue Helpline</h4>
+              <p>Rapid response for injured, trapped or abused animals across Latur district.</p>
+            </div>
+          </div>
+        </div>
+        <div class="h-card">
+          <div class="h-card-row">
+            <div class="h-ico g">🏥</div>
+            <div class="h-card-text">
+              <h4>Free Veterinary Care</h4>
+              <p>Monthly medical camps — surgeries, vaccinations, sterilization. 3,000+ procedures to date.</p>
+            </div>
+          </div>
+        </div>
+        <div class="h-card">
+          <div class="h-card-row">
+            <div class="h-ico t">🏠</div>
+            <div class="h-card-text">
+              <h4>Adoption &amp; Rehabilitation</h4>
+              <p>End-to-end adoption with home visits and post-adoption follow-up. 850+ placed.</p>
+            </div>
+          </div>
+        </div>
+        <div class="h-note">
+          <span style="font-size:1.2rem;flex-shrink:0">📜</span>
+          <p>Registered Society · <strong>80G &amp; 12A Certified</strong> · Schedule VII CSR Eligible</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ TRUST BAR ════ -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="t-item"><div class="t-ico">📋</div>Registered Society</div>
+      <div class="t-sep"></div>
+      <div class="t-item"><div class="t-ico">🧾</div>80G Tax Exemption</div>
+      <div class="t-sep"></div>
+      <div class="t-item"><div class="t-ico">✅</div>12A Certification</div>
+      <div class="t-sep"></div>
+      <div class="t-item"><div class="t-ico">🏛️</div>CSR Schedule VII</div>
+      <div class="t-sep"></div>
+      <div class="t-item"><div class="t-ico">📊</div>Public Annual Reports</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ IMPACT ════ -->
+<div class="impact-section">
+  <div class="container">
+    <div class="impact-grid">
+      <div class="impact-cell">
+        <span class="i-num">1,200+</span>
+        <div class="i-lbl">Animals Rescued</div>
+      </div>
+      <div class="impact-cell">
+        <span class="i-num">850+</span>
+        <div class="i-lbl">Successfully Adopted</div>
+      </div>
+      <div class="impact-cell">
+        <span class="i-num">₹50L+</span>
+        <div class="i-lbl">Medical Aid Delivered</div>
+      </div>
+      <div class="impact-cell">
+        <span class="i-num">200+</span>
+        <div class="i-lbl">Active Volunteers</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ ABOUT ════ -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="label">About Paw Helper</span>
+        <h2 class="about-h">Started With One Rescued Pup. Now a Movement.</h2>
+        <p>Founded in 2022 in Latur, Maharashtra, Paw Helper began with a single injured street dog and the resolve to do more. Today we are a registered NGO running daily rescue, medical and adoption programs across the district.</p>
+        <div class="pillars">
+          <div class="pillar">
+            <div class="p-dot"></div>
+            <div>
+              <h4>Fully Transparent Funding</h4>
+              <p>Every rupee documented. Audited annual reports are publicly available and we are audit-ready for corporate CSR compliance.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="p-dot"></div>
+            <div>
+              <h4>Ground-Level Community Work</h4>
+              <p>200+ trained volunteers, municipal partnerships and school outreach programs build lasting change — not just charity.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="p-dot"></div>
+            <div>
+              <h4>Professional Veterinary Network</h4>
+              <p>Collaboration with licensed vets for surgeries, vaccinations and long-term rehabilitation of every rescued animal.</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-btns">
+          <a href="#donate" class="btn btn-green">Support Our Work</a>
+          <a href="#contact" class="btn btn-ghost">Annual Report</a>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="av green-full">
+          <span class="av-ico">🐾</span>
+          <div>
+            <h4>Our Mission</h4>
+            <p>To rescue, heal and rehome every stray dog and cat in Maharashtra while building a compassionate community for all living beings.</p>
+          </div>
+        </div>
+        <div class="av amber-bg">
+          <span class="av-ico">🐶</span>
+          <span class="av-big ab">850+</span>
+          <span class="av-sm">Successful Adoptions</span>
+        </div>
+        <div class="av pale-bg">
+          <span class="av-ico">🏥</span>
+          <span class="av-big">3,000+</span>
+          <span class="av-sm">Medical Procedures</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PROGRAMS ════ -->
+<section class="programs-section" id="programs">
+  <div class="container">
+    <div class="prog-header">
+      <div>
+        <span class="label">What We Do</span>
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;letter-spacing:-.02em;line-height:1.15">Our Programs</h2>
+      </div>
+      <p>From emergency rescue to long-term adoption — every step of an animal's recovery journey.</p>
+    </div>
+    <div class="prog-grid">
+      <div class="prog-card p1">
+        <div class="prog-thumb">🚑</div>
+        <div class="prog-body">
+          <h3>Emergency Rescue</h3>
+          <p>24/7 helpline for injured, trapped or abused animals. Rapid response teams across Latur district year-round.</p>
+          <span class="prog-badge">Active 24/7</span>
+        </div>
+      </div>
+      <div class="prog-card p2">
+        <div class="prog-thumb">🏥</div>
+        <div class="prog-body">
+          <h3>Free Medical Camps</h3>
+          <p>Monthly vaccination, sterilization and treatment camps. Over 3,000 procedures by licensed veterinarians.</p>
+          <span class="prog-badge">Monthly</span>
+        </div>
+      </div>
+      <div class="prog-card p3">
+        <div class="prog-thumb">🍽️</div>
+        <div class="prog-body">
+          <h3>Daily Feeding Program</h3>
+          <p>4,500+ nutritious meals at 150+ feeding stations across the city by our volunteer network every day.</p>
+          <span class="prog-badge">Daily</span>
+        </div>
+      </div>
+      <div class="prog-card p4">
+        <div class="prog-thumb">🏠</div>
+        <div class="prog-body">
+          <h3>Adoption Drive</h3>
+          <p>Comprehensive process with home visits, counselling and 6-month post-adoption follow-up. 850+ placed.</p>
+          <span class="prog-badge">850+ Adopted</span>
+        </div>
+      </div>
+      <div class="prog-card p5">
+        <div class="prog-thumb">💉</div>
+        <div class="prog-body">
+          <h3>Anti-Rabies Campaign</h3>
+          <p>Mass anti-rabies vaccination drives in partnership with municipal bodies and state health programs.</p>
+          <span class="prog-badge">Govt. Partnered</span>
+        </div>
+      </div>
+      <div class="prog-card p6">
+        <div class="prog-thumb">📚</div>
+        <div class="prog-body">
+          <h3>School Awareness</h3>
+          <p>Animal compassion education in 60+ schools — building the next generation of caring, responsible citizens.</p>
+          <span class="prog-badge">60+ Schools</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ DONATE ════ -->
+<section id="donate">
+  <div class="container">
+    <div class="donate-wrap">
+
+      <!-- Left: impact info -->
+      <div class="donate-left">
+        <span class="label label-amber">Make a Difference</span>
+        <h2 class="donate-h">Your Donation<br><em>Saves Lives</em></h2>
+        <p class="donate-sub">Every contribution goes directly to rescue operations, medical care, food and shelter. 87 paise of every rupee reaches the animals.</p>
+
+        <div class="impact-rows">
+          <div class="ir">
+            <span class="ir-amt">₹500</span>
+            <div class="ir-bar-bg"><div class="ir-bar" style="width:18%"></div></div>
+            <span class="ir-lbl">Feeds 20 animals for a day</span>
+          </div>
+          <div class="ir">
+            <span class="ir-amt">₹1,500</span>
+            <div class="ir-bar-bg"><div class="ir-bar" style="width:36%"></div></div>
+            <span class="ir-lbl">Full vaccination cover</span>
+          </div>
+          <div class="ir">
+            <span class="ir-amt">₹5,000</span>
+            <div class="ir-bar-bg"><div class="ir-bar" style="width:55%"></div></div>
+            <span class="ir-lbl">Emergency surgery &amp; care</span>
+          </div>
+          <div class="ir">
+            <span class="ir-amt">₹10,000</span>
+            <div class="ir-bar-bg"><div class="ir-bar" style="width:75%"></div></div>
+            <span class="ir-lbl">Complete rehabilitation</span>
+          </div>
+          <div class="ir">
+            <span class="ir-amt">₹25,000</span>
+            <div class="ir-bar-bg"><div class="ir-bar" style="width:100%"></div></div>
+            <span class="ir-lbl">Sponsors a full medical camp</span>
+          </div>
+        </div>
+
+        <div class="d-trust">
+          <div class="d-badge">🧾 80G Tax Exempt</div>
+          <div class="d-badge">📋 Receipt on Request</div>
+          <div class="d-badge">📊 FCRA Compliant</div>
+          <div class="d-badge">🔍 Fully Audited</div>
+        </div>
+      </div>
+
+      <!-- Right: donation card — bank/UPI only -->
+      <div class="donate-card">
+        <div class="donate-card-title">How to Donate</div>
+        <div class="donate-card-sub">Transfer directly via UPI or bank. Send us confirmation and we'll issue your 80G receipt within 2 working days.</div>
+
+
+        <!-- Payment methods -->
+        <div class="pay-methods">
+          <div class="pay-method">
+            <div class="pm-icon upi">📱</div>
+            <div class="pm-text">
+              <strong>UPI Transfer</strong>
+              <span>UPI ID: pawhelper@hdfcbank</span>
+            </div>
+            <button class="pm-copy" onclick="copyText('pawhelper@hdfcbank', 'UPI ID copied!')">Copy</button>
+          </div>
+          <div class="pay-method">
+            <div class="pm-icon bank">🏦</div>
+            <div class="pm-text">
+              <strong>Bank Transfer / NEFT / RTGS</strong>
+              <span>A/C: 50100XXXXXXXXXX · IFSC: HDFC0001234 · Paw Helper Foundation</span>
+            </div>
+            <button class="pm-copy" onclick="copyText('50100XXXXXXXXXX', 'Account no. copied!')">Copy</button>
+          </div>
+          <div class="pay-method">
+            <div class="pm-icon cheque">📄</div>
+            <div class="pm-text">
+              <strong>Cheque / DD</strong>
+              <span>Payable to "Paw Helper Foundation" · Mail to our Latur office</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="#contact" class="donate-enquiry">
+          ✉️ Send Donation Confirmation &amp; Get 80G Receipt
+        </a>
+
+        <div class="receipt-note">
+          <span>🧾</span>
+          <p>After transferring, send us your name, amount, UTR/reference number and PAN via the contact form or email. We will issue your <strong>80G tax exemption certificate</strong> within 2 working days.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ CSR ════ -->
+<section class="csr-section" id="csr">
+  <div class="container">
+    <div class="csr-intro-block">
+      <span class="label">Corporate Social Responsibility</span>
+      <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;letter-spacing:-.02em;margin-bottom:12px;line-height:1.2">Partner With Paw Helper</h2>
+      <p>CSR contributions qualify under Schedule VII of the Companies Act, 2013 (Animal Welfare). We provide complete audit-ready documentation for MCA reporting.</p>
+    </div>
+    <div class="csr-split">
+      <div class="csr-left">
+        <span class="label">Why Partner With Us</span>
+        <h3 style="font-family:'Fraunces',serif;font-size:1.55rem;font-weight:600;letter-spacing:-.01em;margin-bottom:14px;line-height:1.25">What Your Company Gets</h3>
+        <p>Partnering with Paw Helper means measurable ground impact, complete compliance documentation, and genuine brand association with animal welfare — a cause that resonates deeply across India.</p>
+        <div class="csr-alert">
+          <span style="font-size:1.1rem;flex-shrink:0">📌</span>
+          <p><strong>Eligible under Companies Act 2013, Schedule VII.</strong> We supply utilization certificates, impact reports and board-level presentations for full compliance.</p>
+        </div>
+        <div class="csr-btns">
+          <a href="#contact" class="btn btn-green">Talk to Our CSR Team</a>
+          <a href="#donate" class="btn btn-ghost">Corporate Donation</a>
+        </div>
+      </div>
+      <div>
+        <span class="label">Partnership Tiers</span>
+        <h3 style="font-family:'Fraunces',serif;font-size:1.45rem;font-weight:600;letter-spacing:-.01em;margin-bottom:18px;line-height:1.25">Choose Your Commitment</h3>
+        <div class="csr-tiers-stack">
+          <div class="tier tg">
+            <div class="tier-medal">🥇</div>
+            <div class="tier-detail">
+              <h4>Gold Partner</h4>
+              <p>Named campaigns · Full branding · Board presentations · Employee volunteering · Quarterly reporting</p>
+            </div>
+            <div class="tier-price">₹5L+/yr</div>
+          </div>
+          <div class="tier ts">
+            <div class="tier-medal">🥈</div>
+            <div class="tier-detail">
+              <h4>Silver Partner</h4>
+              <p>Logo on all campaigns · Employee volunteering · Bi-annual reports</p>
+            </div>
+            <div class="tier-price">₹2L+/yr</div>
+          </div>
+          <div class="tier tb">
+            <div class="tier-medal">🥉</div>
+            <div class="tier-detail">
+              <h4>Bronze Partner</h4>
+              <p>Social media mention · 80G certificate · Annual impact update</p>
+            </div>
+            <div class="tier-price">₹50K+/yr</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="csr-benefits">
+      <div class="cb"><div class="cb-ico">📜</div><h4>Tax Deduction (80G)</h4><p>50% deduction on all donations under Income Tax Act. Certificates issued within 48 hours.</p></div>
+      <div class="cb"><div class="cb-ico">🏆</div><h4>Brand Association</h4><p>Logo on all campaigns, website, social media and ground-level events with your company name.</p></div>
+      <div class="cb"><div class="cb-ico">📊</div><h4>Impact Reports</h4><p>Quarterly detailed CSR impact reports designed for board and stakeholder presentations.</p></div>
+      <div class="cb"><div class="cb-ico">👥</div><h4>Employee Volunteering</h4><p>Structured programs — rescue drives, feeding camps and adoption events for your team.</p></div>
+      <div class="cb"><div class="cb-ico">📋</div><h4>Audit-Ready Docs</h4><p>Full utilization certificates, annual reports, FCRA compliance and MCA reporting support.</p></div>
+      <div class="cb"><div class="cb-ico">🤝</div><h4>Named Campaigns</h4><p>"Powered by [Company]" rescue events and adoption drives with media coverage and visibility.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ STORIES ════ -->
+<section class="stories-section" id="stories">
+  <div class="container">
+    <div class="sec-head">
+      <span class="label">Success Stories</span>
+      <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;letter-spacing:-.02em;margin-bottom:10px;line-height:1.2">Animals Whose Lives Changed</h2>
+      <p>Real rescues, real recoveries. Every story is a life your donation helped save.</p>
+    </div>
+    <div class="stories-grid">
+      <div class="story s1">
+        <div class="story-top">🐶<div class="story-pill">Rescued ✓</div></div>
+        <div class="story-body">
+          <h3>Bruno — Roadside to Forever Home</h3>
+          <p>Found on the Latur bypass with a fractured leg, Bruno received 3 months of intensive rehabilitation before being adopted by a family in Pune.</p>
+          <div class="story-outcome">🏠 Medical Care → Successfully Adopted</div>
+        </div>
+      </div>
+      <div class="story s2">
+        <div class="story-top">🐱<div class="story-pill">Healed ✓</div></div>
+        <div class="story-body">
+          <h3>Mitthu — The Cat Who Didn't Give Up</h3>
+          <p>Arrived malnourished with a severe respiratory infection. After full treatment and vaccination, she is healthy, playful and ready for adoption.</p>
+          <div class="story-outcome">💉 Treated → Ready for Adoption</div>
+        </div>
+      </div>
+      <div class="story s3">
+        <div class="story-top">🐕<div class="story-pill">Family Saved ✓</div></div>
+        <div class="story-body">
+          <h3>Kali — Mother of Six</h3>
+          <p>Kali and her 6 pups were rescued from a drainpipe. All pups found loving homes. Kali was sterilized, vaccinated and is now a protected community dog.</p>
+          <div class="story-outcome">🐣 6 Pups Adopted · Kali Protected</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SPONSORSHIP ════ -->
+<section class="sponsor-section" id="sponsor">
+  <div class="container">
+    <div class="sponsor-intro">
+      <span class="label">Sponsorship Plans</span>
+      <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;letter-spacing:-.02em;line-height:1.2">Sponsor an Animal Directly</h2>
+      <p>Choose a plan that fits your heart and budget. Every sponsorship directly names a real animal in our care — you receive updates, photos and a certificate.</p>
+    </div>
+
+    <div class="sponsor-grid">
+
+      <!-- Weekly Meal -->
+      <div class="sp-card">
+        <div class="sp-header">
+          <div class="sp-icon amber">🍲</div>
+          <div class="sp-name">Meal Sponsorship</div>
+          <div class="sp-title">Weekly Meal for One Animal</div>
+          <div class="sp-price">
+            <span class="sp-amount">₹500</span>
+            <span class="sp-freq">/ week</span>
+          </div>
+        </div>
+        <div class="sp-desc">Provide 7 days of nutritious meals for one stray dog or cat in our feeding network.</div>
+        <div class="sp-divider"></div>
+        <div class="sp-perks">
+          <div class="sp-perk"><div class="sp-perk-dot"></div>7 daily meals for one named animal</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Weekly feeding photo update by WhatsApp</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Digital sponsorship certificate</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Name on our "Feeding Wall" online</div>
+        </div>
+        <div class="sp-footer">
+          <a href="#contact" class="sp-cta outline-cta">Sponsor Meals →</a>
+        </div>
+      </div>
+
+      <!-- Monthly Meal -->
+      <div class="sp-card">
+        <div class="sp-header">
+          <div class="sp-icon green">🐾</div>
+          <div class="sp-name">Monthly Meal Sponsorship</div>
+          <div class="sp-title">Full Month of Meals</div>
+          <div class="sp-price">
+            <span class="sp-amount">₹1,800</span>
+            <span class="sp-freq">/ month</span>
+          </div>
+        </div>
+        <div class="sp-desc">Cover an entire month of meals for one animal — the most popular way to build a bond with a stray.</div>
+        <div class="sp-divider"></div>
+        <div class="sp-perks">
+          <div class="sp-perk"><div class="sp-perk-dot"></div>30 days of nutritious meals for one animal</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Bi-weekly photo &amp; health update</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Printed sponsorship certificate by post</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Featured on our social media</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>80G tax exemption receipt</div>
+        </div>
+        <div class="sp-footer">
+          <a href="#contact" class="sp-cta outline-cta">Sponsor a Month →</a>
+        </div>
+      </div>
+
+      <!-- Vaccination -->
+      <div class="sp-card">
+        <div class="sp-header">
+          <div class="sp-icon teal">💉</div>
+          <div class="sp-name">Health Sponsorship</div>
+          <div class="sp-title">Full Vaccination Cover</div>
+          <div class="sp-price">
+            <span class="sp-amount">₹1,500</span>
+            <span class="sp-freq">one-time</span>
+          </div>
+        </div>
+        <div class="sp-desc">Fund one animal's complete vaccination — anti-rabies, DHPP and deworming — keeping them safe for life.</div>
+        <div class="sp-divider"></div>
+        <div class="sp-perks">
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Anti-rabies + DHPP + deworming</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Vaccination card in your name</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Before &amp; after health photo update</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Digital certificate of sponsorship</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>80G tax exemption receipt</div>
+        </div>
+        <div class="sp-footer">
+          <a href="#contact" class="sp-cta outline-cta">Sponsor Vaccination →</a>
+        </div>
+      </div>
+
+      <!-- Surgery / Medical -->
+      <div class="sp-card">
+        <div class="sp-header">
+          <div class="sp-icon rose">🏥</div>
+          <div class="sp-name">Medical Sponsorship</div>
+          <div class="sp-title">Emergency Surgery &amp; Care</div>
+          <div class="sp-price">
+            <span class="sp-amount">₹5,000</span>
+            <span class="sp-freq">one-time</span>
+          </div>
+        </div>
+        <div class="sp-desc">Cover one animal's emergency surgery, post-op medication and recovery stay at our care centre.</div>
+        <div class="sp-divider"></div>
+        <div class="sp-perks">
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Surgery + medication + recovery care</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Full medical report shared with you</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Recovery photo updates</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Named on our "Healers Wall" online</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>80G tax exemption receipt</div>
+        </div>
+        <div class="sp-footer">
+          <a href="#contact" class="sp-cta outline-cta">Sponsor Surgery →</a>
+        </div>
+      </div>
+
+      <!-- Lifetime Shelter — FEATURED -->
+      <div class="sp-card featured">
+        <div class="sp-header">
+          <div class="sp-icon gold">🏡</div>
+          <div class="sp-name">Lifetime Sponsorship</div>
+          <div class="sp-title">Lifetime Shelter &amp; Care</div>
+          <div class="sp-price">
+            <span class="sp-amount">₹10,000</span>
+            <span class="sp-freq">one-time</span>
+          </div>
+        </div>
+        <div class="sp-desc">Give one animal lifelong shelter, food, medical care and safety — the most meaningful gift you can offer a stray.</div>
+        <div class="sp-divider"></div>
+        <div class="sp-perks">
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Lifetime shelter, food &amp; medical care</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Animal is named after you or your loved one</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Quarterly photo &amp; health updates for life</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Framed certificate posted to your address</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Permanently featured on our website</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>80G tax exemption receipt</div>
+        </div>
+        <div class="sp-footer">
+          <a href="#contact" class="sp-cta green-cta">Sponsor for Life →</a>
+        </div>
+      </div>
+
+      <!-- Full Rehabilitation -->
+      <div class="sp-card">
+        <div class="sp-header">
+          <div class="sp-icon purple">✨</div>
+          <div class="sp-name">Full Rehabilitation</div>
+          <div class="sp-title">Complete Recovery Journey</div>
+          <div class="sp-price">
+            <span class="sp-amount">₹10,000</span>
+            <span class="sp-freq">per animal</span>
+          </div>
+        </div>
+        <div class="sp-desc">Fund one animal's complete rehabilitation — rescue, medical treatment, food, shelter and adoption support.</div>
+        <div class="sp-divider"></div>
+        <div class="sp-perks">
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Rescue → treatment → shelter → adoption</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Full journey documented and shared</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Updates at every stage of recovery</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>Adoption announcement with your name</div>
+          <div class="sp-perk"><div class="sp-perk-dot"></div>80G tax exemption receipt</div>
+        </div>
+        <div class="sp-footer">
+          <a href="#contact" class="sp-cta outline-cta">Sponsor Rehab →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Certificate strip -->
+    <div class="cert-strip">
+      <div class="cert-strip-left">
+        <h3>Every Sponsor Gets a Certificate &amp; Real Updates</h3>
+        <p>We believe in full transparency. Every sponsorship comes with a physical or digital certificate, regular photo updates from the ground, and a proper 80G tax exemption receipt.</p>
+      </div>
+      <div class="cert-strip-right">
+        <a href="#contact" class="btn btn-primary">Start a Sponsorship</a>
+        <a href="#donate" class="btn btn-white-ghost">One-Time Donation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CONTACT ════ -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-intro">
+        <span class="label">Contact Us</span>
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;letter-spacing:-.02em;margin-bottom:14px;line-height:1.2">Get in Touch</h2>
+        <p>For CSR partnerships, donation confirmations, volunteering, adoptions or media enquiries. We respond within 24 hours.</p>
+        <div class="c-items">
+          <div class="c-item">
+            <div class="c-ico">📍</div>
+            <div class="c-txt"><strong>Address</strong><span>Paw Helper Foundation, Latur, Maharashtra — 413512</span></div>
+          </div>
+          <div class="c-item">
+            <div class="c-ico">📞</div>
+            <div class="c-txt"><strong>Rescue Helpline (24/7)</strong><span>+91 98765 43210</span></div>
+          </div>
+          <div class="c-item">
+            <div class="c-ico">📧</div>
+            <div class="c-txt"><strong>Email</strong><span>info@pawhelper.org &nbsp;·&nbsp; csr@pawhelper.org</span></div>
+          </div>
+          <div class="c-item">
+            <div class="c-ico">🏦</div>
+            <div class="c-txt">
+              <strong>Bank Details</strong>
+              <span>Paw Helper Foundation · HDFC Bank<br>A/C: 50100XXXXXXXXXX · IFSC: HDFC0001234<br>UPI: pawhelper@hdfcbank</span>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-ico">🕐</div>
+            <div class="c-txt"><strong>Office Hours</strong><span>Mon–Sat: 9 AM – 6 PM · Rescue Helpline 24/7</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 class="cf-title">Send a Message</h3>
+        <div class="contact-form">
+          <div class="field-row">
+            <div class="field"><label>First Name</label><input type="text" placeholder="Ravi"></div>
+            <div class="field"><label>Last Name</label><input type="text" placeholder="Kumar"></div>
+          </div>
+          <div class="field"><label>Email Address</label><input type="email" placeholder="ravi@company.com"></div>
+          <div class="field"><label>Phone Number</label><input type="tel" placeholder="+91 98765 43210"></div>
+          <div class="field">
+            <label>Enquiry Type</label>
+            <select>
+              <option value="">Select</option>
+              <option>Donation Confirmation &amp; 80G Receipt</option>
+              <option>Corporate CSR Partnership</option>
+              <option>Animal Adoption</option>
+              <option>Volunteering</option>
+              <option>Report an Injured Animal</option>
+              <option>Media / Press</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+          <div class="field"><label>Message</label><textarea placeholder="Your message, UTR reference number, or donation details..."></textarea></div>
+          <button class="btn btn-green" style="border:none;cursor:pointer;justify-content:center;font-size:.9rem;border-radius:var(--r-sm);width:100%;padding:13px" onclick="submitForm()">Send Message →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-brand">
+        <a href="#hero" class="logo">
+          <div class="logo-mark">🐾</div>
+          <span class="logo-text">Paw <span>Helper</span></span>
+        </a>
+        <p>Registered NGO committed to rescuing, rehabilitating and rehoming stray animals across Maharashtra. Saving lives, one paw at a time.</p>
+        <div class="socials">
+          <a class="soc" href="#">📘</a>
+          <a class="soc" href="#">📸</a>
+          <a class="soc" href="#">🐦</a>
+          <a class="soc" href="#">▶️</a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h5>Organisation</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#programs">Our Programs</a></li>
+          <li><a href="#stories">Success Stories</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h5>Get Involved</h5>
+        <ul>
+          <li><a href="#donate">How to Donate</a></li>
+          <li><a href="#sponsor">Sponsorship Plans</a></li>
+          <li><a href="#csr">CSR Partnership</a></li>
+          <li><a href="#contact">Volunteer</a></li>
+          <li><a href="#programs">Adopt a Pet</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="#">Registration Certificate</a></li>
+          <li><a href="#">80G Certificate</a></li>
+          <li><a href="#">12A Certificate</a></li>
+          <li><a href="#">Annual Report 2023–24</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-btm">
+      <span>© 2024 Paw Helper Foundation · Latur, Maharashtra · All rights reserved</span>
+      <span>Made with care for every street animal · <a href="#donate">Donate Today</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky" id="stickyBar">
+  <p class="sticky-txt"><strong>Support Paw Helper</strong> — Transfer via UPI or bank. We'll send your 80G receipt within 2 working days.</p>
+  <a href="#donate" class="btn btn-primary btn-sm">Donate Now</a>
+</div>
+
+<script>
+  // Sticky bar
+  window.addEventListener('scroll', () => {
+    document.getElementById('stickyBar').style.display = window.scrollY > 700 ? 'flex' : 'none';
+  });
+
+  // Toast helper
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2800);
+  }
+
+  // Copy to clipboard
+  function copyText(text, msg) {
+    navigator.clipboard.writeText(text).then(() => showToast('✅ ' + msg)).catch(() => {
+      // fallback
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast('✅ ' + msg);
+    });
+  }
+
+  // Contact form submit
+  function submitForm() {
+    showToast('✅ Message sent! We\'ll respond within 24 hours.');
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
